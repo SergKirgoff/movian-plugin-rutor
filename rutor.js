@@ -160,9 +160,9 @@ function scraper(page, doc, section) {
             comments = match[5].match(/[\s\S]*?<td align="right">([\s\S]*?)</)[1];
         } else
             var end = match[5].match(/[\s\S]*?<td align="right">([\s\S]*?)<[\s\S]*?nbsp;([\s\S]*?)<\/span>[\s\S]*?nbsp;([\s\S]*?)<\/span>/);
-        var url = service.baseURL + match[2];
+        var url = 'http:' + match[2];
         if (match[2].match(/http:\/\//))
-            url = service.baseURL + match[2].match(/(\/download.*)/)[1];
+            url = match[2].match(/(\/download.*)/)[1];
         if (section && page.entries == 0)
             page.appendItem("", "separator", {
                 title: 'Связанные раздачи'
